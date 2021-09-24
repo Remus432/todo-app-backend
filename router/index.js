@@ -2,6 +2,7 @@ const express = require("express")
 const router = express.Router()
 const todoController = require("../controller")
 
+router.get("/", (req, res) => res.redirect("/todos"))
 router.get("/todos", todoController.get_todos)
 router.post("/add-todo", todoController.add_todo)
 router.put("/update-todos", todoController.update_todos)
