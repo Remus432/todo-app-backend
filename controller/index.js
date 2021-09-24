@@ -9,7 +9,7 @@ const get_todos = async (req, res) => {
   //   res.status(500).send({ err: "Something went wrong when fetching the todos..."}) 
   // } 
   Todo.find()
-    .then(todos => res.send(todos))
+    .then(todos => res.status(200).send(res.json(todos)))
     .catch(err => res.status(500).send({ err: err}))
 }
 
