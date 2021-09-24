@@ -11,15 +11,20 @@ const get_todos = async (req, res) => {
 }
 
 const add_todo = async (req, res) => {
-  try {
-    const todo = req.body
+  // try {
+  //   const todo = req.body
+  //   const todoObj = new Todo(todo)
+
+  //   const result = await todoObj.save()
+  //   res.status(201).send(result)
+  // } catch (err) {
+  //   res.status(500).send({ err: "Something went wrong when adding the todo..."}) 
+  // }
+  const todo = req.body
     const todoObj = new Todo(todo)
 
     const result = await todoObj.save()
     res.status(201).send(result)
-  } catch (err) {
-    res.status(500).send({ err: "Something went wrong when adding the todo..."}) 
-  }
 }
 
 const update_todos = async (req, res) => {  
