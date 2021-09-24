@@ -2,12 +2,15 @@ const Todo = require("../model/todo")
 const mongoose = require("mongoose")
 
 const get_todos = async (req, res) => {
-  try {
-    const todos = await Todo.find()
-    res.status(200).send(todos)
-  } catch (err) {
-    res.status(500).send({ err: "Something went wrong when fetching the todos..."}) 
-  } 
+  // try {
+  //   const todos = await Todo.find()
+  //   res.status(200).send(todos)
+  // } catch (err) {
+  //   res.status(500).send({ err: "Something went wrong when fetching the todos..."}) 
+  // } 
+  Todo.find()
+    .then(todos => res.send(todos))
+    .catch(err => res.status(500).send({ err: err}))
 }
 
 const add_todo = async (req, res) => {
